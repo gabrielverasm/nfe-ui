@@ -1,0 +1,15 @@
+h1, h5 {
+  text-align: center;
+}
+
+h1 {
+  padding-top: 100px;
+}
+
+h5 {
+  padding-top: 10px;
+}
+
+form {
+  padding-top: 60px;
+}

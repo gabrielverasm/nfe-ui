@@ -1,0 +1,20 @@
+.container-fluid {
+  color: gray;
+}
+.footerMail {
+  margin-left: auto;
+}
+
+.dflex {
+  height: 50%;
+}
+
+.aux {
+  padding-left: 5px;
+  padding-right: 5px;
+  size: 18px;
+  color: black;
+}
+.footerFone {
+  margin-right: auto;
+}

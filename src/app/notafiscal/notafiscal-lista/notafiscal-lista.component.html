@@ -1,0 +1,68 @@
+<h1>Notas Fiscais</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="alert alert-success" role="alert" *ngIf="mensagemSucesso">
+        {{ mensagemSucesso }}
+      </div>
+    </div>
+  </div>
+    <div class="row">
+        <div class="col-md-12" align="center">
+            <div class="form-group">
+                <button class="btn btn-warning btn-lg" routerLink="/nfe">Cadastrar NFE</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- <div class="col-md-2"></div> -->
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Num. Nota</th>
+                        <th>Estabelecimento</th>
+                        <th>Valor Total</th>
+                        <th>Data Emissão</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let nfe of nfes">
+                        <td>{{ nfe.id }}</td>
+                        <td>{{ nfe.numeroNota }}</td>
+                        <td>{{ nfe.estabelecimento }}</td>
+                        <td>{{ nfe.valorTotal }}</td>
+                        <td>{{ nfe.dataEmissao }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/nfe/{{ nfe.id }}">
+                                  <i class="fas fa-edit"></i>
+                                </button>
+                            <button class="btn btn-danger" (click)="preDelet(nfe)"
+                            data-toggle="modal" data-target="#modalDelecao">
+                                  <i class="fas fa-trash"></i>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5>Confirmação</h5>
+                </div>
+                <div class="modal-body" *ngIf="nfeselecionada">
+                    Confirma a exclusão da notaa de número: {{nfeselecionada.numeroNota}} ?
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger" (click)="deleteNfe()" data-dismiss="modal">Excluir</button>
+                    <button class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
